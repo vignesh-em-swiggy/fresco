@@ -359,6 +359,8 @@ public class EncodedImage implements Closeable {
     final Pair<Integer, Integer> dimensions;
     if (DefaultImageFormats.isWebpFormat(imageFormat)) {
       dimensions = readWebPImageSize();
+    } else if (imageFormat == DefaultImageFormats.AVIF) {
+      dimensions = setDefaultImageSize();
     } else {
       dimensions = readImageMetaData().getDimensions();
     }
@@ -375,6 +377,10 @@ public class EncodedImage implements Closeable {
     } else if (mRotationAngle == UNKNOWN_ROTATION_ANGLE) {
       mRotationAngle = 0;
     }
+  }
+
+  private Pair<Integer, Integer> setDefaultImageSize() {
+    return Pair.create(-1, -1);
   }
 
   /** We get the size from a WebP image */
