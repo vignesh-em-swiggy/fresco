@@ -30,6 +30,8 @@ public final class DefaultImageFormats {
   public static final ImageFormat HEIF = new ImageFormat("HEIF", "heif");
   public static final ImageFormat DNG = new ImageFormat("DNG", "dng");
 
+  public static final ImageFormat AVIF = new ImageFormat("AVIF", "avif");
+
   private static ImmutableList<ImageFormat> sAllDefaultFormats;
 
   /**
